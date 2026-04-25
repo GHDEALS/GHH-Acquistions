@@ -17,7 +17,7 @@ export function generateDealPDF(deal) {
   doc.setTextColor(255, 255, 255)
   doc.setFontSize(22)
   doc.setFont('helvetica', 'bold')
-  doc.text('GHH Acquisitions', 40, 38)
+  doc.text('GHH Acuasitions', 40, 38)
 
   doc.setFontSize(10)
   doc.setFont('helvetica', 'normal')
@@ -223,7 +223,7 @@ export function generateDealPDF(deal) {
     doc.setPage(i)
     doc.setFontSize(8)
     doc.setTextColor(148, 163, 184)
-    doc.text('GHH Acquisitions  ·  Always verify with live comps before submitting offers', 40, doc.internal.pageSize.getHeight() - 20)
+    doc.text('GHH Acuasitions  ·  Always verify with live comps before submitting offers', 40, doc.internal.pageSize.getHeight() - 20)
     doc.text(`${i} / ${pages}`, W - 40, doc.internal.pageSize.getHeight() - 20, { align: 'right' })
   }
 

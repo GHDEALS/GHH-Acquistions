@@ -45,7 +45,7 @@ Return this exact shape (numbers are examples only):
 export async function analyzeDeal({ address, maoPct, radiusMiles, monthsBack }) {
   const userMsg = `Analyze this property. MAO: ${maoPct}%. Comps within ${radiusMiles}mi sold last ${monthsBack} months.\n\nAddress: ${address}\n\nReturn ONLY the JSON object.`
 
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const resp = await fetch('/api/analyze', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

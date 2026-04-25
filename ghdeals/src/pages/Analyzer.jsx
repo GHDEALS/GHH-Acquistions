@@ -69,8 +69,8 @@ export default function Analyzer() {
         <p className="text-sm text-slate-500 mt-0.5">ARV · MAO · Assignment Fee — instant wholesale analysis</p>
       </div>
 
-      {/* Input card */}
-      <Card className="p-5 mb-5">
+      {/* Address + MAO */}
+      <Card className="p-5 mb-3">
         <Input
           label="Property Address"
           value={address}
@@ -80,13 +80,20 @@ export default function Analyzer() {
           autoFocus
           className="mb-4"
         />
+        <ToggleGroup label="MAO %" options={[{value:65,label:'65%'},{value:70,label:'70%'},{value:75,label:'75%'}]} value={maoPct} onChange={setMaoPct} />
+      </Card>
 
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          <ToggleGroup label="MAO %" options={[{value:65,label:'65%'},{value:70,label:'70%'},{value:75,label:'75%'}]} value={maoPct} onChange={setMaoPct} />
-          <ToggleGroup label="Comp Radius" options={[{value:0.5,label:'0.5mi'},{value:1,label:'1mi'},{value:1.5,label:'1.5mi'},{value:2,label:'2mi'}]} value={radius} onChange={setRadius} />
+      {/* Comp Filters */}
+      <Card className="p-5 mb-5">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="w-1.5 h-4 bg-blue-600 rounded-full" />
+          <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Comp Filters</span>
+          <span className="text-xs text-slate-400 ml-1">Applied when pulling comparable sales</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4 mb-5">
+          <ToggleGroup label="Radius" options={[{value:0.5,label:'0.5mi'},{value:1,label:'1mi'},{value:1.5,label:'1.5mi'},{value:2,label:'2mi'}]} value={radius} onChange={setRadius} />
           <ToggleGroup label="Sold Within" options={[{value:3,label:'3mo'},{value:6,label:'6mo'},{value:9,label:'9mo'},{value:12,label:'12mo'}]} value={months} onChange={setMonths} />
         </div>
-
         <Button onClick={run} disabled={loading || !address.trim()} size="lg" className="w-full">
           {loading ? (
             <span className="flex items-center gap-2">
